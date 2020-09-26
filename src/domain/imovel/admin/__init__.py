@@ -1,5 +1,5 @@
 from django.contrib import admin
-from domain.imovel.models import Tipo, Propriedade;
+from domain.imovel.models import Tipo, Propriedade
 
 
 class TipoAdmin(admin.ModelAdmin):
@@ -8,6 +8,8 @@ class TipoAdmin(admin.ModelAdmin):
 
 class PropriedadeAdmin(admin.ModelAdmin):
     list_display = ['nome', 'valor', 'tipo', 'foto']
+    list_filter = ['tipo__nome']
+    search_fields = ['nome']
 
 
 admin.site.register(Tipo, TipoAdmin)
