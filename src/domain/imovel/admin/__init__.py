@@ -3,11 +3,11 @@ from domain.imovel.models import Tipo, Propriedade
 
 
 class TipoAdmin(admin.ModelAdmin):
-    list_display = ['nome']
+    list_display = ['nome', 'criado_em', 'modificado_em']
 
 
 class PropriedadeAdmin(admin.ModelAdmin):
-    list_display = ['nome', 'valor', 'tipo', 'foto']
+    list_display = ['nome', 'valor', 'tipo', 'foto', 'criado_em', 'modificado_em']
     list_filter = ['tipo__nome']
     search_fields = ['nome']
 
