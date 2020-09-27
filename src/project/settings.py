@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     # Apps
     'domain.imovel.apps.ImovelConfig',
+    'domain.localizacao.apps.LocalizacaoConfig'
 ]
 
 MIDDLEWARE = [
