@@ -4,7 +4,7 @@ from domain.localizacao.utils import unique_slug_generator
 
 
 class Cidade(models.Model):
-    slug = models.SlugField(max_length=250, null=True, blank=True)
+    slug = models.SlugField(max_length=250, default=" ", null=True, blank=True)
     nome = models.CharField(max_length=50)
     estado = models.CharField(max_length=50)
     regiao = models.ForeignKey('localizacao.Regiao', on_delete=models.PROTECT)
