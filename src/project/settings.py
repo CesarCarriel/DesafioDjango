@@ -47,6 +47,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'import_export',
 
+    # GeoDjango
+    'django.contrib.gis',
+
+    # Django-leaft
+    'leaflet',
+    'djgeojson',
+
     # Apps
     'domain.imovel.apps.ImovelConfig',
     'domain.localizacao.apps.LocalizacaoConfig'
@@ -89,6 +96,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': env.db('DB_DEFAULT', default=f'psql://app:app@localhost:54321/app')
 }
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -137,3 +145,12 @@ STATICFILES_DIRS = (
 
 # Configuration import-export
 IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+
+LEAFLET_CONFIG = {
+    'TILES': [('GStreets', 'http://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}',
+               {'attribution': '&copy; Google'}),
+              ('GSatellite',
+               'http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}',
+               {'attribution': '&copy; Google'})]
+}
