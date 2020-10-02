@@ -1,5 +1,6 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
+from leaflet.admin import LeafletGeoAdmin
 from domain.imovel.resources.PropriedadeResoucers import PropriedadeResources
 from domain.imovel.resources.TipoResources import TipoResources
 
@@ -11,7 +12,7 @@ class TipoAdmin(ImportExportModelAdmin):
     list_display = ['nome', 'criado_em', 'modificado_em']
 
 
-class PropriedadeAdmin(ImportExportModelAdmin):
+class PropriedadeAdmin(LeafletGeoAdmin, ImportExportModelAdmin):
     resource_class = PropriedadeResources
     list_display = ['nome', 'valor', 'tipo', 'foto', 'criado_em', 'modificado_em']
     list_filter = ['tipo__nome']
@@ -19,4 +20,6 @@ class PropriedadeAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Tipo, TipoAdmin)
+
+
 admin.site.register(Propriedade, PropriedadeAdmin)
