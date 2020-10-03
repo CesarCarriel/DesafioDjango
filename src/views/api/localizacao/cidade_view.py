@@ -1,6 +1,6 @@
 from domain.localizacao.models import Cidade
 from domain.localizacao.serializers import CidadeSerializer
-from rest_framework import generics, viewsets
+from rest_framework import generics
 
 
 class CidadeCreateViewSet(generics.ListCreateAPIView):
