@@ -52,7 +52,6 @@ INSTALLED_APPS = [
 
     # Django-leaft
     'leaflet',
-    'djgeojson',
 
     # Apps
     'domain.imovel.apps.ImovelConfig',
