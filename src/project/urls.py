@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from views.api.localizacao import RegiaoViewSet, RegiaoCreateViewSet, CidadeViewSet, CidadeCreateViewSet
+from views.api.imovel import ListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -8,15 +9,5 @@ urlpatterns = [
     path('cidade/<int:pk>', CidadeViewSet.as_view()),
     path('regiao/', RegiaoCreateViewSet.as_view()),
     path('regiao/<int:pk>', RegiaoViewSet.as_view()),
+    path('propriedades', ListView.as_view({'get': 'list'})),
 ]
-'''
-from core import views
-
-urlpatterns = [
-    path('persons/', views.PersonList.as_view()),
-    path('persons/<int:pk>/', views.PersonDetail.as_view()),
-]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
-
-'''
