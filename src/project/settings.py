@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DB_DEFAULT', default=f'psql://app:app@localhost:54321/app')
+    'default': env.db('DB_DEFAULT', default=f'postgresql://app:app@postgres/app')
 }
 DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 

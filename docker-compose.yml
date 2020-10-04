@@ -1,6 +1,17 @@
 version: '3.3'
 
 services:
+  app:
+    build: .
+    container_name: desafio-django
+    command: python src/manage.py runserver 0.0.0.0:8000 --insecure
+    volumes:
+      - .:/home/django/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
   postgres:
     build: ./docker/postgresql
     volumes:
@@ -9,7 +20,7 @@ services:
       POSTGRES_USER: "app"
       POSTGRES_PASSWORD: "app"
     ports:
-      - "54321:5432"
+      - "5432:5432"
 
 volumes:
   data_postgres:
