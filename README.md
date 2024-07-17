@@ -1,4 +1,4 @@
-# Desafio Django
+# Rural Admin
 
 Este é um desafio para criação de um sistema de gerenciamento de propriedades rurais.
 
